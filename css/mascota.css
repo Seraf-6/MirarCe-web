@@ -1,0 +1,75 @@
+/* ===========================================================
+   MirarCE — Mascota (personaje triángulo)
+   Assets: assets/personaje-teal.png / -gold.png / -coral.png
+   Uso: <img src="assets/personaje-teal.png" class="mc mc-flotar" alt="">
+   =========================================================== */
+
+.mc { display: block; height: auto; }
+
+/* Tamaños */
+.mc--sm { width: 90px; }
+.mc--md { width: 150px; }
+.mc--lg { width: 220px; }
+
+/* Nivel 1 · Sutil: respira */
+@keyframes mc-flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+.mc-flotar { animation: mc-flotar 3.4s ease-in-out infinite; }
+
+/* Nivel 2 · Medio: se balancea como saludando */
+@keyframes mc-saludo {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  25%      { transform: rotate(-4deg) translateY(-4px); }
+  75%      { transform: rotate(3deg) translateY(-2px); }
+}
+.mc-saludo { animation: mc-saludo 2.6s ease-in-out infinite; transform-origin: 50% 90%; }
+
+/* Saludo real con la mano (solo teal, requiere dos capas)
+   Markup:
+   <div class="mcw mc--md">
+     <img class="mcw__cuerpo" src="assets/personaje-teal-cuerpo.png" alt="Mascota MirarCE">
+     <img class="mcw__brazo" src="assets/personaje-teal-brazo.png" alt="" aria-hidden="true">
+   </div>
+   Los porcentajes vienen de la posición exacta del brazo en el sprite
+   original (274x476): no cambiarlos sin regenerar las capas. */
+.mcw { position: relative; display: inline-block; }
+.mcw__cuerpo { width: 100%; display: block; height: auto; }
+.mcw__brazo {
+  position: absolute;
+  left: 67.52%; top: 37.39%; width: 32.48%;
+  transform-origin: 25.8% 69.6%;
+  animation: mc-ola 4.4s ease-in-out infinite;
+}
+@keyframes mc-ola {
+  0%, 10%   { transform: rotate(0); }
+  18%       { transform: rotate(-12deg); }
+  26%       { transform: rotate(5deg); }
+  34%       { transform: rotate(-10deg); }
+  42%       { transform: rotate(7deg); }
+  52%, 100% { transform: rotate(0); }
+}
+
+/* Espiar: asoma desde el borde del contenedor (contenedor necesita
+   position:relative y overflow:hidden) */
+@keyframes mc-espiar {
+  0%, 15%  { transform: translateY(105%) rotate(0); }
+  35%, 80% { transform: translateY(18%) rotate(-5deg); }
+  100%     { transform: translateY(105%); }
+}
+.mc-espiar {
+  position: absolute; bottom: 0; right: 4%;
+  animation: mc-espiar 7s ease-in-out infinite;
+}
+
+/* Entrada al hacer scroll (combinar con IntersectionObserver
+   que agregue la clase .in) */
+.mc-entrada { opacity: 0; transform: translateY(40px) scale(.9); transition: opacity .7s var(--ease, ease), transform .7s var(--ease, ease); }
+.mc-entrada.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-flotar, .mc-saludo, .mc-espiar, .mcw__brazo { animation: none; }
+  .mc-espiar { transform: translateY(18%); }
+  .mc-entrada { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MirarCE — Mascota (demo de animaciones)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mascota.css">
+  <style>
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--s3); align-items: end; }
+    .demo-card { background: var(--white); border: 1px solid color-mix(in srgb, var(--navy) 10%, transparent); border-radius: var(--radius); padding: var(--s3); text-align: center; }
+    .demo-card .mc { margin: 0 auto var(--s2); }
+    .demo-card h3 { font-family: var(--head); color: var(--navy); font-size: 1rem; }
+    .demo-card p { font-size: .88rem; color: var(--ink-soft); margin: 0; }
+    .demo-card code { font-size: .8rem; color: var(--coral); }
+    .peek-box { position: relative; overflow: hidden; background: var(--navy); border-radius: var(--radius); min-height: 240px; display: flex; align-items: center; padding: var(--s4); }
+    .peek-box p { color: var(--cream); max-width: 60%; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="wordmark">Mirar<span class="ce">ce</span></a>
+    <div class="nav__links"><a href="index.html">← Volver al sitio</a></div>
+  </nav>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Demo interno</p>
+      <h1 class="display" style="color:var(--navy);font-size:clamp(2rem,5vw,3.4rem)">La mascota y sus animaciones</h1>
+      <p class="lead" style="max-width:640px">El personaje original del tablero de marca, extraído del PDF. Cada tarjeta muestra una clase CSS reutilizable de <code>css/mascota.css</code>.</p>
+
+      <div class="demo-grid" style="margin-top:var(--s4)">
+        <div class="demo-card">
+          <img src="assets/personaje-teal.png" class="mc mc--md mc-flotar" alt="Personaje teal flotando">
+          <h3>Sutil · respira</h3>
+          <p><code>.mc-flotar</code> — para acompañar contenido sin distraer.</p>
+        </div>
+        <div class="demo-card">
+          <img src="assets/personaje-gold.png" class="mc mc--md mc-saludo" alt="Personaje dorado con lupa saludando">
+          <h3>Medio · saluda</h3>
+          <p><code>.mc-saludo</code> — al entrar una sección en pantalla.</p>
+        </div>
+        <div class="demo-card">
+          <div class="mcw mc--md" style="margin:0 auto var(--s2)">
+            <img class="mcw__cuerpo" src="assets/personaje-teal-cuerpo.png" alt="Mascota MirarCE saludando con la mano">
+            <img class="mcw__brazo" src="assets/personaje-teal-brazo.png" alt="" aria-hidden="true">
+          </div>
+          <h3>Saluda con la mano</h3>
+          <p><code>.mcw</code> — el brazo es una capa separada que rota desde el hombro. Para momentos destacados (ej. el puntaje perfecto).</p>
+        </div>
+      </div>
+
+      <div class="peek-box" style="margin-top:var(--s4)">
+        <p><b style="font-family:var(--head)">Espiar:</b> el personaje asoma desde el borde del panel. Pensado para el explorador de datos o el pie de página. Clase <code style="color:var(--gold)">.mc-espiar</code> en un contenedor con <code style="color:var(--gold)">overflow:hidden</code>.</p>
+        <img src="assets/personaje-teal.png" class="mc mc--md mc-espiar" alt="Personaje asomando desde el borde">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap"><small>Demo interno · no enlazado desde el sitio público</small></div>
+  </footer>
+</body>
+</html>

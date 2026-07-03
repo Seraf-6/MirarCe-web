@@ -1,0 +1,503 @@
+{
+ "ejes": [
+  "Información básica",
+  "Participación e índices democráticos",
+  "Gobernanza y estructura interna",
+  "Actividades y proyectos",
+  "Formación y capacitación",
+  "Materiales y archivos",
+  "Comunicación"
+ ],
+ "eje_max": [
+  5,
+  58,
+  12,
+  3,
+  5,
+  13,
+  4
+ ],
+ "total_max": 100,
+ "centros": [
+  {
+   "facultad": "FIUNA",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Ingeniería (CEI)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    58.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 100.0
+  },
+  {
+   "facultad": "FADA",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Arquitectura Diseño y Arte (CEADA)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    54.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 96.0
+  },
+  {
+   "facultad": "Odontología",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Odontología (CEO)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    54.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 96.0
+  },
+  {
+   "facultad": "FACEN",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Ciencias Exactas y Naturales (CECEN)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    49.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 91.0
+  },
+  {
+   "facultad": "FCQ",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Ciencias Químicas (CEQ)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    45.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 87.0
+  },
+  {
+   "facultad": "FACSO",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la FACSO",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    47.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 86.0
+  },
+  {
+   "facultad": "Obstetricia",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Obstetricia (CEO)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    41.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 83.0
+  },
+  {
+   "facultad": "C. Políticas",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Ciencias Políticas (CECPUNA)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    46.0,
+    7.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 83.0
+  },
+  {
+   "facultad": "ECONOMIA",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias Económicas (CEFCE)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    40.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 82.0
+  },
+  {
+   "facultad": "Politécnica",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Politécnica (CEP)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    40.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 82.0
+  },
+  {
+   "facultad": "MEDICINA",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Medicina (CEMUNA)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    37.0,
+    12.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 75.0
+  },
+  {
+   "facultad": "Veterinaria",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la facultad de ciencias veterinarias (CEV)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    40.0,
+    9.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 75.0
+  },
+  {
+   "facultad": "Agronomía",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias Agrarias (CEFCA)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    31.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 73.0
+  },
+  {
+   "facultad": "Derecho",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de Derecho UNA (DEDUNA)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    null,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 95.0
+  },
+  {
+   "facultad": "FILO",
+   "institucion": "UNIVERSIDAD NACIONAL DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Filosofía (CEFFUNA)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    40.0,
+    4.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 70.0
+  },
+  {
+   "facultad": "Comercio Internacional",
+   "institucion": "UNIVERSIDAD AMERICANA",
+   "ce": "Centro de Estudiantes de Comercio Internacional (CECIN)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    36.0,
+    9.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 71.0
+  },
+  {
+   "facultad": "Economía",
+   "institucion": "UNIVERSIDAD AMERICANA",
+   "ce": "Centro de Estudiantes de Economía",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    25.0,
+    9.0,
+    3.0,
+    5.0,
+    5.0,
+    4.0
+   ],
+   "total": 56.0
+  },
+  {
+   "facultad": "Universidad Autónoma de Asunción",
+   "institucion": "UNIVERSIDAD AUTÓNOMA DE ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Universidad Autónoma de Asunción",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    36.0,
+    4.0,
+    0.0,
+    0.0,
+    13.0,
+    4.0
+   ],
+   "total": 62.0
+  },
+  {
+   "facultad": "Facultad de Filosofía",
+   "institucion": "UNIVERSIDAD CATÓLICA NUESTRA SEÑORA DE LA ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Filosofía y Ciencias Humanas (CEFUC)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    54.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 93.0
+  },
+  {
+   "facultad": "Facultad de Ciencias Jurídicas",
+   "institucion": "UNIVERSIDAD CATÓLICA NUESTRA SEÑORA DE LA ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias Jurídicas (CEDUC)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    54.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 93.0
+  },
+  {
+   "facultad": "Facultad de Ciencias Administrativas, contables y económicas",
+   "institucion": "UNIVERSIDAD CATÓLICA NUESTRA SEÑORA DE LA ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias Contables, Administrativas y Económicas (CECCAE)",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    57.0,
+    9.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 92.0
+  },
+  {
+   "facultad": "Facultad de Ciencias de la Salud",
+   "institucion": "UNIVERSIDAD CATÓLICA NUESTRA SEÑORA DE LA ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias de la Salud (CEFACS)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    45.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 84.0
+  },
+  {
+   "facultad": "Ciencias y Tecnología",
+   "institucion": "UNIVERSIDAD CATÓLICA NUESTRA SEÑORA DE LA ASUNCIÓN",
+   "ce": "Centro de Estudiantes de la Facultad de Ciencias y Tecnologías (CECYT)",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    41.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 80.0
+  },
+  {
+   "facultad": "Facultad de Ciencias de la Comunicación",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    54.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 93.0
+  },
+  {
+   "facultad": "Facultad de Derecho y Ciencias Sociales",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    55.0,
+    12.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 93.0
+  },
+  {
+   "facultad": "Facultad de Ciencias Económicas UNE",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "M",
+   "etapas": [
+    5.0,
+    44.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 86.0
+  },
+  {
+   "facultad": "Agro UNE",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    45.0,
+    12.0,
+    3.0,
+    5.0,
+    9.0,
+    4.0
+   ],
+   "total": 83.0
+  },
+  {
+   "facultad": "Facultad de Ciencias de la Salud",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    35.0,
+    12.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 77.0
+  },
+  {
+   "facultad": "Facultad Politécnica",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    32.0,
+    9.0,
+    3.0,
+    5.0,
+    13.0,
+    4.0
+   ],
+   "total": 71.0
+  },
+  {
+   "facultad": "ESBA",
+   "institucion": "UNIVERSIDAD NACIONAL DEL ESTE",
+   "ce": "",
+   "genero": "F",
+   "etapas": [
+    5.0,
+    21.0,
+    12.0,
+    3.0,
+    5.0,
+    5.0,
+    4.0
+   ],
+   "total": 55.0
+  }
+ ]
+}
