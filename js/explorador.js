@@ -33,6 +33,16 @@
     .replace('UNIVERSIDAD DEL CONO SUR DE LAS AMÉRICAS', 'UCSA')
     .replace('UNIVERSIDAD AUTÓNOMA DE ASUNCIÓN', 'UAA')
     .replace('UNIVERSIDAD AMERICANA', 'Americana');
+  const acroOf = (c) => {
+    const src = c.ce || '';
+    const paren = src.match(/\(([^)]+)\)\s*$/);
+    if (paren) return paren[1];
+    const caps = src.match(/\b[A-Z]{3,}\b/g);
+    if (caps) return caps[caps.length - 1];
+    const skip = new Set(['de','del','la','las','los','el','y','e','en','un','una']);
+    const words = src.split(/\s+/).filter(w => w.length > 3 && !skip.has(w.toLowerCase()));
+    return words.length ? words[words.length - 1] : shortUni(c.institucion);
+  };
 
   /* ===========================================================
      1) CARRUSEL DE INSIGHTS
@@ -120,6 +130,14 @@
     const car = document.getElementById('insights');
     car.addEventListener('mouseenter', () => clearInterval(timer));
     car.addEventListener('mouseleave', reset);
+    let tx = 0;
+    const carView = document.querySelector('#insights .car-view');
+    carView.addEventListener('touchstart', (e) => { clearInterval(timer); tx = e.touches[0].clientX; }, { passive: true });
+    carView.addEventListener('touchend', (e) => {
+      const dx = tx - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) go(dx > 0 ? idx + 1 : idx - 1);
+      timer = setInterval(() => go(idx + 1), 7000);
+    }, { passive: true });
   }
 
   /* ===========================================================
@@ -207,7 +225,7 @@
       const champ = (idx === 0 && state.sort === 'total') ? '<span class="dot-champ" aria-hidden="true"></span>' : '';
       const gap = hasGap(c) ? ' <span class="inc" title="Datos incompletos">∗</span>' : '';
       rows += `<div class="dot-row" data-idx="${idx}">
-        <div class="dot-label">${labelOf(c)}${gap}<small>${shortUni(c.institucion)}</small></div>
+        <div class="dot-label"><span class="label-full">${labelOf(c)}${gap}</span><span class="label-short">${acroOf(c)}${gap}</span><small>${shortUni(c.institucion)}</small></div>
         <div class="dot-track">
           <div class="dot-fill" data-w="${pct(c)}" style="background:${colorUni(c.institucion)}"></div>
           <span class="dot-mark" data-x="${pct(c)}" style="background:${colorUni(c.institucion)}">${champ}</span>
@@ -253,6 +271,8 @@
     const eb = document.getElementById('hero-eyebrow'), by = document.getElementById('hero-byline');
     if (eb) eb.textContent = 'Explorador de datos · ' + state.year;
     if (by) by.innerHTML = 'Observatorio <b>MirarCE</b> · ' + D0.centros.length + ' centros · sobre ' + D0.total_max + (state.year === '2025' ? ' puntos (7 ejes)' : ' puntos (16 criterios)');
+    const countEl = document.getElementById('count-centros');
+    if (countEl) countEl.textContent = D0.centros.length;
     const maxI = D0.eje_max.indexOf(Math.max(...D0.eje_max));
     const co = document.getElementById('callout-body');
     if (co) co.innerHTML = `<p class="eyebrow" style="color:var(--teal)">El eje que más pesa en ${state.year}</p>
@@ -355,7 +375,7 @@
         responsive: true, maintainAspectRatio: false,
         layout: { padding: 6 },
         plugins: { legend: { display: false }, tooltip: { callbacks: { title: (i) => D0.ejes[i[0].dataIndex], label: (i) => i.raw + '%' } } },
-        scales: { r: { min: 0, max: 100, ticks: { display: false, stepSize: 25 }, grid: { color: 'rgba(0,62,86,.12)' }, angleLines: { color: 'rgba(0,62,86,.12)' }, pointLabels: { font: { size: 9.5 }, color: '#3a5560' } } }
+        scales: { r: { min: 0, max: 100, ticks: { display: false, stepSize: 25 }, grid: { color: 'rgba(0,62,86,.12)' }, angleLines: { color: 'rgba(0,62,86,.12)' }, pointLabels: { font: { size: window.innerWidth < 480 ? 8 : 9.5 }, color: '#3a5560' } } }
       }
     });
   }

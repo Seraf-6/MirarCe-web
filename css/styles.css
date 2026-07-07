@@ -42,6 +42,7 @@ body {
   background: var(--paper);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
@@ -105,6 +106,11 @@ section { padding-block: var(--s6); }
   text-decoration: none; color: var(--navy);
 }
 .nav__links a:hover { color: var(--coral); }
+@media (max-width: 720px) {
+  .nav { padding: var(--s1) var(--s2); }
+  .nav__links a:not(.btn) { display: none; }
+  .nav__links .btn { font-size: .85rem; padding: .65em 1.1em; }
+}
 
 /* ---------- Botones ---------- */
 .btn {

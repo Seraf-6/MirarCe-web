@@ -185,6 +185,43 @@
       .dot-label { font-size: .76rem; }
       .controls { top: 56px; }
     }
+
+    /* ---- Mobile enhancements ---- */
+    /* Hero circles */
+    @media (max-width: 720px) {
+      .story-hero .dot { display: none; }
+    }
+
+    /* Controls: compact + scroll horizontal */
+    @media (max-width: 720px) {
+      .controls { padding-block: 6px; }
+      .controls__row { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 6px; padding-bottom: 2px; scrollbar-width: none; }
+      .controls__row::-webkit-scrollbar { display: none; }
+      .chip { font-size: .78rem; padding: .28em .65em; white-space: nowrap; flex-shrink: 0; }
+      .year-switch .yr { padding: .2em .8em; }
+      .label { white-space: nowrap; flex-shrink: 0; }
+      .scale-note { display: none; }
+    }
+
+    /* Dot plot: sigla en mobile, nombre completo en desktop */
+    .label-short { display: none; }
+    @media (max-width: 600px) {
+      .dot-label { display: block; overflow: visible; }
+      .label-full { display: none; }
+      .label-short { display: inline; font-weight: 600; }
+    }
+
+    /* Vista de columnas: scroll horizontal en mobile */
+    @media (max-width: 600px) {
+      .chart--cols { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .cols-plot { min-width: 420px; }
+      .cols-foot { min-width: 420px; }
+    }
+
+    /* Drawer: ancho completo en pantallas muy chicas */
+    @media (max-width: 480px) {
+      .drawer { width: 100vw; padding: var(--s2); }
+    }
   </style>
 </head>
 <body>
@@ -229,7 +266,7 @@
   <!-- INTRO -->
   <section style="padding-block:var(--s3)">
     <div class="wrap reveal" style="max-width:660px">
-      <p class="lead">Un centro de estudiantes puede tener miles de seguidores y las mejores fiestas. Pero eso no dice si funciona como una democracia. Abajo están los 30 centros ordenados por su puntaje; tocá cualquiera para ver su radar y a su representante.</p>
+      <p class="lead">Un centro de estudiantes puede tener miles de seguidores y las mejores fiestas. Pero eso no dice si funciona como una democracia. Abajo están los <span id="count-centros">30</span> centros ordenados por su puntaje; tocá cualquiera para ver su radar y a su representante.</p>
     </div>
   </section>
 
