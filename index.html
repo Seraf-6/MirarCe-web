@@ -48,6 +48,10 @@
     .eje-card h3 { font-family: var(--head); font-size: 1.05rem; color: var(--navy); }
     .eje-card p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
     .eje-card .pts { font-family: var(--head); font-weight: 700; font-size: .82rem; color: var(--coral); margin-top: var(--s2); }
+    .eje-toggle-btn { background: none; border: none; padding: 0; margin-top: var(--s2); font-family: var(--head); font-weight: 600; font-size: .8rem; color: var(--coral); cursor: pointer; display: flex; align-items: center; gap: .3em; }
+    .eje-toggle-btn:hover { opacity: .75; }
+    .eje-items { margin: var(--s1) 0 0; padding-left: 1.1em; font-size: .85rem; color: var(--ink-soft); line-height: 1.55; }
+    .eje-items li { margin-bottom: 2px; }
 
     /* ----- Teaser ranking ----- */
     .teaser { background: var(--paper-2); }
@@ -120,6 +124,7 @@
       <p class="eyebrow">El observatorio</p>
       <h2 class="sec-head" style="font-family:var(--head);font-weight:700;color:var(--navy);font-size:clamp(2rem,4.5vw,3rem);">Un centro de estudiantes fuerte no se mide por las fiestas, sino por su democracia.</h2>
       <p class="lead">MirarCE nace para responder una pregunta simple: ¿qué tan democráticos, transparentes y representativos son los centros de estudiantes? Recogemos información de cada centro, la puntuamos con criterios públicos y la publicamos para que estudiantes, autoridades y la ciudadanía puedan compararla.</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);margin-top:var(--s3);padding-left:var(--s2);border-left:3px solid var(--gold)"><b style="color:var(--navy)">Sobre los datos.</b> Un dato faltante no se cuenta como cero: se marca como pendiente, y el puntaje solo suma lo que se pudo medir. Estos resultados son un retrato de cada año, no una sentencia definitiva.</p>
     </div>
   </section>
 
@@ -184,7 +189,7 @@
         <p><a href="https://www.instagram.com/mirarce.py/" target="_blank" rel="noopener">@mirarce.py</a></p>
       </div>
     </div>
-    <div class="wrap" style="margin-top:var(--s4)"><small>Borrador de sitio · Datos: Observatorio MirarCE 2025</small></div>
+    <div class="wrap" style="margin-top:var(--s4)"><small>Datos: Observatorio MirarCE 2025</small></div>
   </footer>
 
   <script src="js/data-years.js"></script>
@@ -194,12 +199,57 @@
       const d = window.MIRARCE_YEARS['2025'];
       const colors = ['var(--teal)','var(--coral)','var(--navy)','var(--gold)','var(--teal)','var(--coral)','var(--navy)'];
       const grid = document.getElementById('ejes-grid');
+      const EJE_CRITERIOS = [
+        // 1. Información básica
+        ['¿Tiene un centro de estudiantes activo?'],
+        // 2. Participación e índices democráticos
+        ['¿Qué porcentaje de estudiantes participó en las últimas elecciones?',
+         '¿Compitió más de una lista?',
+         '¿Tiene un calendario electoral?',
+         '¿El centro integra miembros de más de un movimiento?',
+         '¿El Tribunal Electoral Interno incluye más de una lista?',
+         '¿Promueve la participación mediante asambleas o consejos de delegados?',
+         '¿Publica un pre padrón electoral?',
+         '¿El calendario tiene al menos 30 días hábiles?',
+         '¿Hay veedores de ambos movimientos el día de las elecciones?',
+         '¿Tiene comisión directiva electa en proceso único?',
+         '¿El pre padrón se publica al menos 30 días antes del sufragio?',
+         '¿Tiene representantes de todas las carreras de la facultad?',
+         '¿Colabora en procesos de evaluación externa?'],
+        // 3. Gobernanza y estructura interna
+        ['¿Tiene normativas y estatutos internos?',
+         '¿Gestiona sus recursos con transparencia y rendición de cuentas?',
+         '¿Cuenta con personería jurídica o RUC actualizado?'],
+        // 4. Actividades y proyectos
+        ['¿Colabora con otras instituciones o redes de centros de estudiantes?'],
+        // 5. Formación y capacitación
+        ['¿Pertenece a alguna organización mayor o red de centros de estudiantes?'],
+        // 6. Materiales y archivos
+        ['¿Tiene material de archivo accesible (actas, informes, fotos, videos)?',
+         '¿Cuenta con un libro de actas actualizado?',
+         '¿Usa plataformas digitales para organización y comunicación interna?'],
+        // 7. Comunicación
+        ['¿Usa redes sociales para comunicar su gestión?']
+      ];
       d.ejes.forEach((name,i)=>{
         const el = document.createElement('div');
         el.className = 'eje-card';
+        const items = EJE_CRITERIOS[i] || [];
+        const listHtml = items.length
+          ? `<ul class="eje-items" hidden>${items.map(c=>`<li>${c}</li>`).join('')}</ul>`
+          : `<ul class="eje-items" hidden><li style="font-style:italic;opacity:.6">Criterios próximamente</li></ul>`;
         el.innerHTML = `<div class="tag" style="background:${colors[i]}">${i+1}</div>
           <h3>${name}</h3>
-          <p class="pts">Hasta ${d.eje_max[i]} pts</p>`;
+          <p class="pts">Hasta ${d.eje_max[i]} pts</p>
+          ${listHtml}
+          <button class="eje-toggle-btn" aria-expanded="false">Ver criterios ▾</button>`;
+        el.querySelector('.eje-toggle-btn').addEventListener('click', () => {
+          const list = el.querySelector('.eje-items');
+          const btn = el.querySelector('.eje-toggle-btn');
+          const open = list.hasAttribute('hidden');
+          if (open) { list.removeAttribute('hidden'); btn.textContent = 'Ocultar ▴'; btn.setAttribute('aria-expanded','true'); }
+          else { list.setAttribute('hidden',''); btn.textContent = 'Ver criterios ▾'; btn.setAttribute('aria-expanded','false'); }
+        });
         grid.appendChild(el);
       });
       // Mini ranking (top 5)

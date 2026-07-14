@@ -390,19 +390,31 @@
 
   /* ---------- Evolución ---------- */
   function buildEvolution() {
-    const wrap = document.getElementById('evo-rows');
+    const wrap = document.getElementById(‘evo-rows’);
     if (!wrap || !YEARS.matches) return;
     const ms = YEARS.matches.slice().sort((a, b) => b.p25 - a.p25);
     wrap.innerHTML = ms.map(m => {
-      const up = m.p25 - m.p24, dir = up > 0 ? 'up' : (up < 0 ? 'down' : 'flat');
-      const arrow = up > 0 ? '▲' : (up < 0 ? '▼' : '■');
-      return `<div class="evo-row ${dir}"><div class="evo-name">${m.acro}</div>
+      const up = m.p25 - m.p24, dir = up > 0 ? ‘up’ : (up < 0 ? ‘down’ : ‘flat’);
+      const arrow = up > 0 ? ‘▲’ : (up < 0 ? ‘▼’ : ‘■’);
+      return `<div class="evo-row ${dir}">
+        <div class="evo-name" role="button" tabindex="0" title="Tocá para ver el nombre completo">
+          <span class="evo-acro">${m.acro}</span>
+          <small class="evo-uni">${shortUni(m.uni)}</small>
+          <span class="evo-full" hidden>${m.ce}</span>
+        </div>
         <div class="evo-track">
           <span class="evo-dot d24" style="left:${m.p24}%"><b>${m.p24}%</b><span>’24</span></span>
           <span class="evo-line" style="left:${Math.min(m.p24, m.p25)}%;width:${Math.abs(m.p25 - m.p24)}%"></span>
           <span class="evo-dot d25" style="left:${m.p25}%"><b>${m.p25}%</b><span>’25</span></span>
-        </div><div class="evo-delta ${dir}">${arrow} ${up > 0 ? '+' : ''}${up}</div></div>`;
-    }).join('');
+        </div><div class="evo-delta ${dir}">${arrow} ${up > 0 ? ‘+’ : ‘’}${up}</div></div>`;
+    }).join(‘’);
+    wrap.querySelectorAll(‘.evo-name’).forEach(el => {
+      el.addEventListener(‘click’, () => {
+        const full = el.querySelector(‘.evo-full’);
+        if (full.hasAttribute(‘hidden’)) full.removeAttribute(‘hidden’);
+        else full.setAttribute(‘hidden’, ‘’);
+      });
+    });
   }
 
   const rio = new IntersectionObserver((entries) => {

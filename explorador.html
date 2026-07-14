@@ -222,6 +222,12 @@
     @media (max-width: 480px) {
       .drawer { width: 100vw; padding: var(--s2); }
     }
+
+    /* Evo: nombre completo al click */
+    .evo-name { cursor: pointer; }
+    .evo-name:hover .evo-acro { color: var(--gold); }
+    .evo-uni { display: block; font-family: var(--body); font-weight: 400; font-size: .7rem; color: color-mix(in srgb,var(--cream) 55%,transparent); margin-top: 2px; }
+    .evo-full { display: block; font-family: var(--body); font-size: .78rem; font-weight: 400; color: color-mix(in srgb,var(--cream) 78%,transparent); margin-top: 4px; line-height: 1.3; white-space: normal; }
   </style>
 </head>
 <body>
@@ -315,14 +321,6 @@
     </div>
   </section>
 
-  <section style="padding-block:var(--s4)">
-    <div class="wrap reveal" style="max-width:660px">
-      <div class="caveat">
-        <b>Sobre los datos.</b> Un dato faltante no se cuenta como cero: se marca como pendiente, y el puntaje solo suma lo que se pudo medir. Estos resultados son un retrato de cada año, no una sentencia definitiva.
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="wrap footer__grid">
       <div>
@@ -338,7 +336,7 @@
         <p><a href="https://www.instagram.com/mirarce.py/" target="_blank" rel="noopener">@mirarce.py</a></p>
       </div>
     </div>
-    <div class="wrap" style="margin-top:var(--s4)"><small>Borrador de sitio · Datos: Observatorio MirarCE 2024–2025</small></div>
+    <div class="wrap" style="margin-top:var(--s4)"><small>Datos: Observatorio MirarCE 2024–2025</small></div>
   </footer>
 
   <div class="drawer-backdrop" id="backdrop"></div>
