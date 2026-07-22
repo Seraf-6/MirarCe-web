@@ -111,7 +111,10 @@
     dotsWrap.innerHTML = slides.map((_, i) => `<button class="car-dot${i === 0 ? ' on' : ''}" data-i="${i}" aria-label="Insight ${i + 1}"></button>`).join('');
     let idx = 0; const n = slides.length;
     const view = document.querySelector('#insights .car-view');
-    const setH = () => { const s = track.children[idx]; if (s && view) view.style.height = s.offsetHeight + 'px'; };
+    const setH = () => requestAnimationFrame(() => {
+      const s = track.children[idx];
+      if (s && view) view.style.height = s.offsetHeight + 'px';
+    });
     const go = (i) => {
       idx = (i + n) % n;
       track.style.transform = `translateX(-${idx * 100}%)`;
@@ -119,7 +122,7 @@
       setH();
     };
     setH();
-    setTimeout(setH, 400);            // re-medir tras cargar fuentes
+    setTimeout(setH, 600);
     window.addEventListener('load', setH);
     window.addEventListener('resize', setH);
     let timer = setInterval(() => go(idx + 1), 7000);
@@ -235,13 +238,15 @@
     chart.innerHTML = `<div class="dot-head"><span class="dot-label"></span><div class="dot-track">${axis}</div><span></span></div>
       <div class="dot-body">${grid}${rows}</div>`;
     const rowsEl = chart.querySelectorAll('.dot-row');
+    const isMobile = window.innerWidth < 720;
     rowsEl.forEach((r, k) => {
       r.addEventListener('click', () => openDrawer(list[+r.dataset.idx]));
-      setTimeout(() => {
+      const show = () => {
         r.querySelector('.dot-fill').style.width = r.querySelector('.dot-fill').dataset.w + '%';
         r.querySelector('.dot-mark').style.left = r.querySelector('.dot-mark').dataset.x + '%';
         r.classList.add('in');
-      }, k * 26);
+      };
+      if (isMobile) show(); else setTimeout(show, k * 26);
     });
   }
 
