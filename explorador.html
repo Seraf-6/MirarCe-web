@@ -184,6 +184,10 @@
       .chart--dots { --labw: 116px; --valw: 40px; --gap: 12px; }
       .dot-label { font-size: .76rem; }
       .controls { top: 56px; }
+      /* Mostrar filas inmediatamente en mobile — sin esperar stagger animation */
+      .dot-row { opacity: 1 !important; transform: none !important; transition: none !important; }
+      /* Carrusel: no colapsar si setH() llega tarde */
+      .car-view { min-height: 80px; }
     }
 
     /* ---- Mobile enhancements ---- */
