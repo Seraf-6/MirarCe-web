@@ -1,4 +1,4 @@
-# MirarCE — Sitio web (borrador)
+# MirarCE — Sitio web 
 
 Observatorio de Centros de Estudiantes del Paraguay.
 
